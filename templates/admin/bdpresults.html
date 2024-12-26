@@ -1,0 +1,50 @@
+{% extends 'admin/adminbase.html' %}
+{% load static %}
+{% block contents %}
+
+<section id="contact" class="contact">
+    <div class="container"  data-aos="fade-up">
+        <div class="section-title">
+            <h2>Breast disease Prediction</h2>
+            </div>
+            <div class="col-md-12">
+             <table style="border-collapse: collapse; width: 100%; border: 2px solid #000;">
+                    <thead>
+                    <tr style="background-color: #2487ce; color: #fff;">
+                        <th scope="col">S.No</th>
+                        <th scope="col">user_email</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Menopause</th>
+                        <th scope="col">Tumor</th>
+                        <th scope="col">Invnodes</th>
+                        <th scope="col">Breast</th>
+                        <th scope="col">Metastasis</th>
+                        <th scope="col">BreastQuadrant</th>
+                        <th scope="col">History</th>
+                        <th scope="col">Result 0-no 1-yes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                    <tr scope="row">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.user_email}}</td>
+                        <td>{{i.age}}</td>
+                        <td>{{i.menopause}}</td>
+                        <td>{{i.Tumor}}</td>
+                        <td>{{i.InvNodes}}</td>
+                        <td>{{i.Breast}}</td>
+                        <td>{{i.Metastasis}}</td>
+                        <td>{{i.BreastQuadrant}}</td>
+                        <td>{{i.History}}</td>
+                        <td>{{i.custom_predictions}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'admin/adminbase.html' %}
+{% load static %}
+{% block contents %}
+
+<section id="contact" class="contact">
+    <div class="container"  data-aos="fade-up">
+        <div class="section-title">
+            <h2>Liver Disease Prediction</h2>
+            </div>
+            <div class="col-md-12">
+             <table style="border-collapse: collapse; width: 100%; border: 2px solid #000;">
+                    <thead>
+                    <tr style="background-color: #2487ce; color: #fff;">
+                        <th scope="col">S.No</th>
+                        <th scope="col">user_email</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Total_Bilirubin</th>
+                        <th scope="col">Direct_Bilirubin</th>
+                        <th scope="col">Alkaline_Phosphotase</th>
+                        <th scope="col">Alamine_Aminotransferase</th>
+                        <th scope="col">Aspartate_Aminotransferase</th>
+                        <th scope="col">Total_Protiens</th>
+                        <th scope="col">Albumin</th>
+                        <th scope="col">Albumin_and_Globulin_Ratio</th>
+                        <th scope="col">Result 0-no 1-yes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                    <tr scope="row">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.user_email}}</td>
+                        <td>{{i.age}}</td>
+                        <td>{{i.Gender}}</td>
+                        <td>{{i.Total_Bilirubin}}</td>
+                        <td>{{i.Direct_Bilirubin}}</td>
+                        <td>{{i.Alkaline_Phosphotase}}</td>
+                        <td>{{i.Alamine_Aminotransferase}}</td>
+                        <td>{{i.Aspartate_Aminotransferase}}</td>
+                        <td>{{i.Total_Protiens}}</td>
+                        <td>{{i.Albumin}}</td>
+                        <td>{{i.Albumin_and_Globulin_Ratio}}</td>
+                        <td>{{i.custom_predictions}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+    </div>
+</section>
+
+{% endblock %}

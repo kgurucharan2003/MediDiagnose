@@ -1,0 +1,140 @@
+{% extends 'user/puserbase.html' %}
+{% load static %}
+{% block contents %}
+
+<style>
+    #contact{
+        min-height: 90vh;
+    }
+    /* Basic table styles */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+        font-size: 14px;
+    }
+
+    th {
+        background-color: #2487ce;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* Responsive table styles */
+    @media (max-width: 768px) {
+        table, thead, tbody, th, td, tr {
+            display: block;
+            width: 100%;
+        }
+
+        /* Hide table headers for small screens */
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        tr {
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        td {
+            border: none;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            padding-left: 50%;
+            text-align: right;
+        }
+
+        /* Labels for each data cell on mobile */
+        td:before {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        /* Data labels for each column */
+        td:nth-of-type(1):before { content: "S.No"; }
+        td:nth-of-type(2):before { content: "Age"; }
+        td:nth-of-type(3):before { content: "Sex"; }
+        td:nth-of-type(4):before { content: "Cp"; }
+        td:nth-of-type(5):before { content: "Trestbps"; }
+        td:nth-of-type(6):before { content: "Chol"; }
+        td:nth-of-type(7):before { content: "Fbs"; }
+        td:nth-of-type(8):before { content: "Restecg"; }
+        td:nth-of-type(9):before { content: "Thalach"; }
+        td:nth-of-type(10):before { content: "Exang"; }
+        td:nth-of-type(11):before { content: "Oldpeak"; }
+        td:nth-of-type(12):before { content: "Slope"; }
+        td:nth-of-type(13):before { content: "Ca"; }
+        td:nth-of-type(14):before { content: "Thal"; }
+        td:nth-of-type(15):before { content: "Result (0-no, 1-yes)"; }
+    }
+</style>
+
+<section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+        <a class="nav-link scrollto back" href="{% url 'puserredictions' %}"><i class="fas fa-arrow-left"></i> back</a>
+        <div class="section-title">
+            <h2>Heart Disease Prediction</h2>
+        </div>
+        <div class="col-md-12">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">S.No</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Sex</th>
+                        <th scope="col">Cp</th>
+                        <th scope="col">Trestbps</th>
+                        <th scope="col">Chol</th>
+                        <th scope="col">Fbs</th>
+                        <th scope="col">Restecg</th>
+                        <th scope="col">Thalach</th>
+                        <th scope="col">Exang</th>
+                        <th scope="col">Oldpeak</th>
+                        <th scope="col">Slope</th>
+                        <th scope="col">Ca</th>
+                        <th scope="col">Thal</th>
+                        <th scope="col">Result (0-no, 1-yes)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ i.age }}</td>
+                        <td>{{ i.sex }}</td>
+                        <td>{{ i.cp }}</td>
+                        <td>{{ i.trestbps }}</td>
+                        <td>{{ i.chol }}</td>
+                        <td>{{ i.fbs }}</td>
+                        <td>{{ i.restecg }}</td>
+                        <td>{{ i.thalach }}</td>
+                        <td>{{ i.exang }}</td>
+                        <td>{{ i.oldpeak }}</td>
+                        <td>{{ i.slope }}</td>
+                        <td>{{ i.ca }}</td>
+                        <td>{{ i.thal }}</td>
+                        <td>{{ i.custom_predictions }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

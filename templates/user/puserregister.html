@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+
+<!-- ======= Register Section ======= -->
+<section id="register" class="register-section d-flex align-items-center">
+    <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+            <!-- Left Side Image -->
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="register-image">
+                    <img src="{% static 'img/register.jpg' %}" alt="Register Image" class="img-fluid">
+                </div>
+            </div>
+            <!-- Right Side Form -->
+            <div class="col-lg-6">
+                <div class="register-box">
+                    <div class="section-title text-center mb-4">
+                        <h2>User Register</h2>
+                    </div>
+                    <form action="/puserregister/" method="post" role="form">
+                        {% csrf_token %}
+                        <div class="row gy-2 gx-md-3">
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="phone" class="form-control" id="phone" placeholder="Your phone" pattern="[0-9]{10}" title="Please enter 10 digits." required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="city" class="form-control" id="city" placeholder="Your city" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="password" class="form-control" name="pswd" id="pswd" placeholder="Your password" required>
+                            </div>
+                            <div class="text-center col-12">
+                                <button type="submit" class="btn btn-primary w-100">Register</button>
+                            </div>
+                        </div>
+                        {% if messages %}
+                        <div class="alert alert-danger mt-3">
+                            {% for message in messages %}
+                            <span>{{ message }}</span><br>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </form>
+                    <div class="text-center mt-3">
+                      <p>Already have an account? <a href="{% url 'puserlogin' %}" style="color: #2487ce;">Login here</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

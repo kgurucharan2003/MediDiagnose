@@ -1,0 +1,50 @@
+{% extends 'admin/adminbase.html' %}
+{% load static %}
+{% block contents %}
+
+<section id="contact" class="contact">
+    <div class="container"  data-aos="fade-up">
+        <div class="section-title">
+            <h2>Diabetes Prediction</h2>
+            </div>
+            <div class="col-md-12">
+             <table style="border-collapse: collapse; width: 100%; border: 2px solid #000;">
+                    <thead>
+                    <tr style="background-color: #2487ce; color: #fff;">
+                        <th scope="col">S.No</th>
+                        <th scope="col">user_email</th>
+                        <th scope="col">Pregnancies</th>
+                        <th scope="col">Glucose</th>
+                        <th scope="col">Bloodpressure</th>
+                        <th scope="col">Skinthickness</th>
+                        <th scope="col">Insulin</th>
+                        <th scope="col">Bmi</th>
+                        <th scope="col">Diabetespedigreefunction</th>
+                        <th scope="col">age</th>
+                        <th scope="col">Result 0-no 1-yes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                    <tr scope="row">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.user_email}}</td>
+                        <td>{{i.pregnancies}}</td>
+                        <td>{{i.glucose}}</td>
+                        <td>{{i.bloodpressure}}</td>
+                        <td>{{i.skinthickness}}</td>
+                        <td>{{i.insulin}}</td>
+                        <td>{{i.bmi}}</td>
+                        <td>{{i.diabetespedigreefunction}}</td>
+                        <td>{{i.age}}</td>
+                        <td>{{i.custom_predictions}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+    </div>
+</section>
+
+{% endblock %}

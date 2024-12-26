@@ -1,0 +1,492 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<style>
+  .team-validation{
+    font-family: "Poppins", sans-serif;
+  }
+  {% comment %} body {
+    line-height: 1.6;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+} {% endcomment %}
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+h1, h2 {
+    color: #2c3e50;
+}
+.accuracy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+.accuracy-item {
+    background-color: #e9f7ef;
+    border: 1px solid #27ae60;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+}
+.disease-card {
+    background-color: #fff;
+    border-left: 5px solid #3498db;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+.disease-card h3 {
+    color: #3498db;
+    margin-top: 0;
+}
+ul {
+    padding-left: 20px;
+}
+@media (max-width: 768px) {
+    .accuracy-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+  
+</style>
+
+<main id="main">
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Services</h2>
+            </div>
+  
+          <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon-box iconbox-blue">
+                <div class="icon">
+                  <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
+                  </svg>
+                  <i class="bx bxl-dribbble"></i>
+                </div>
+                <h4><a >Heart Disease</a></h4>
+                <p> A leading cause of morbidity worldwide, encompasses various conditions affecting the heart and blood vessels, including coronary artery disease, heart attacks, and arrhythmias.</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+              <div class="icon-box iconbox-orange ">
+                <div class="icon">
+                  <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426"></path>
+                  </svg>
+                  <i class="bx bx-file"></i>
+                </div>
+                <h4><a>Kidney disease</a></h4>
+                <p>A prevalent health concern, encompasses a range of conditions affecting the kidneys' function, including chronic kidney disease, kidney stones, and urinary tract infections.</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+              <div class="icon-box iconbox-pink">
+                <div class="icon">
+                  <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,541.5067337569781C382.14930387511276,545.0595476570109,479.8736841581634,548.3450877840088,526.4010558755058,480.5488172755941C571.5218469581645,414.80211281144784,517.5187510058486,332.0715597781072,496.52539010469104,255.14436215662573C477.37192572678356,184.95920475031193,473.57363656557914,105.61284051026155,413.0603344069578,65.22779650032875C343.27470386102294,18.654635553484475,251.2091493199835,5.337323636656869,175.0934190732945,40.62881213300186C97.87086631185822,76.43348514350839,51.98124368387456,156.15599469081315,36.44837278890362,239.84606092416172C21.716077023791087,319.22268207091537,43.775223500013084,401.1760424656574,96.891909868211,461.97329694683043C147.22146801428983,519.5804099606455,223.5754009179313,538.201503339737,300,541.5067337569781"></path>
+                  </svg>
+                  <i class="bx bx-tachometer"></i>
+                </div>
+                <h4><a>Liver disease</a></h4>
+                <p>A multifaceted health issue, encompasses diverse conditions such as fatty liver disease, hepatitis, and cirrhosis. Understanding its causes, symptoms, and treatment options is essential for maintaining liver health and preventing serious complications.</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon-box iconbox-yellow">
+                <div class="icon">
+                  <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813"></path>
+                  </svg>
+                  <i class="bx bx-layer"></i>
+                </div>
+                <h4><a >Breast Disease</a></h4>
+                <p>one of the most prevalent cancers affecting women worldwide, is characterized by the abnormal growth of cells in breast tissue.</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+              <div class="icon-box iconbox-red">
+                <div class="icon">
+                  <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,532.3542879108572C369.38199826031484,532.3153073249985,429.10787420159085,491.63046689027357,474.5244479745417,439.17860296908856C522.8885846962883,383.3225815378663,569.1668002868075,314.3205725914397,550.7432151929288,242.7694973846089C532.6665558377875,172.5657663291529,456.2379748765914,142.6223662098291,390.3689995646985,112.34683881706744C326.66090330228417,83.06452184765237,258.84405631176094,53.51806209861945,193.32584062364296,78.48882559362697C121.61183558270385,105.82097193414197,62.805066853699245,167.19869350419734,48.57481801355237,242.6138429142374C34.843463184063346,315.3850353017275,76.69343916112496,383.4422959591041,125.22947124332185,439.3748458443577C170.7312796277747,491.8107796887764,230.57421082200815,532.3932930995766,300,532.3542879108572"></path>
+                  </svg>
+                  <i class="bx bx-slideshow"></i>
+                </div>
+                <h4><a >Diabetes</a></h4>
+                <p>A metabolic disorder, poses significant health challenges globally, impacting individuals' blood sugar regulation and overall well-being. Managing diabetes involves maintaining a balanced diet, regular physical activity, and often medication or insulin therapy. </p>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Sevices Section -->
+      <div class="container" data-aos="fade-up">
+        <div class="card">
+          <p>These Machine Learning models  are trained on large datasets.</p>
+          <h2>Model Accuracies:</h2>
+          <div class="accuracy-grid">
+              <div class="accuracy-item">Diabetes Model: 85.21%</div>
+              <div class="accuracy-item">Breast Disease Model: 98.25%</div>
+              <div class="accuracy-item">Heart Disease Model: 85.25%</div>
+              <div class="accuracy-item">Kidney Disease Model: 99%</div>
+              <div class="accuracy-item">Liver Model: 78%</div>
+          </div>
+      </div>
+  
+      <h2>Information about the Diseases which this WebApp can predict:</h2>
+  
+      <div class="disease-card">
+          <h3>Diabetes</h3>
+          <p>Diabetes is a disease that occurs when your blood glucose, also called blood sugar, is too high. Blood glucose is your main source of energy and comes from the food you eat. Insulin, a hormone made by the pancreas, helps glucose from food get into your cells to be used for energy. Sometimes your body doesn't make enough—or any—insulin or doesn't use insulin well. Glucose then stays in your blood and doesn't reach your cells.</p>
+          <h4>Symptoms:</h4>
+          <ul>
+              <li>Urinating often</li>
+              <li>Feeling very thirsty</li>
+              <li>Feeling very hungry</li>
+              <li>Extreme fatigue</li>
+              <li>Blurry vision</li>
+          </ul>
+      </div>
+  
+      <div class="disease-card">
+          <h3>Breast Cancer</h3>
+          <p>Breast cancer is cancer that forms in the cells of the breasts. After skin cancer, breast cancer is the most common cancer diagnosed in women in the United States. Breast cancer can occur in both men and women, but it's far more common in women.</p>
+          <h4>Symptoms:</h4>
+          <ul>
+              <li>A breast lump or thickening that feels different from the surrounding tissue</li>
+              <li>Change in the size, shape or appearance of a breast</li>
+              <li>Changes to the skin over the breast, such as dimpling</li>
+              <li>A newly inverted nipple</li>
+              <li>Peeling, scaling, crusting or flaking of the pigmented area of skin surrounding the nipple (areola) or breast skin</li>
+          </ul>
+      </div>
+  
+      <div class="disease-card">
+          <h3>Chronic kidney disease</h3>
+          <p>Chronic kidney disease, also called chronic kidney failure, describes the gradual loss of kidney function. Your kidneys filter wastes and excess fluids from your blood, which are then excreted in your urine. When chronic kidney disease reaches an advanced stage, dangerous levels of fluid, electrolytes and wastes can build up in your body.</p>
+          <h4>Symptoms:</h4>
+          <ul>
+              <li>Nausea</li>
+              <li>Vomiting</li>
+              <li>Loss of appetite</li>
+              <li>Fatigue and weakness</li>
+              <li>Sleep problems</li>
+              <li>Changes in how much you urinate</li>
+          </ul>
+      </div>
+  
+      <div class="disease-card">
+          <h3>Liver disease</h3>
+          <p>Symptoms of liver disease can vary, but they often include swelling of the abdomen and legs, bruising easily, changes in the color of your stool and urine, and jaundice, or yellowing of the skin and eyes. Sometimes there are no symptoms. Tests such as imaging tests and liver function tests can check for liver damage and help to diagnose liver diseases.</p>
+      </div>
+      </div>
+      <section id="about-us">
+        <div class="container">
+            <div class="row">
+                <!-- Left Side: About Us and What We Do -->
+                <div class="col-lg-6">
+                    <div class="about-us-content">
+                        <h2>About Us</h2>
+                        <p>
+                            AI Powered Medical Diagnosis is a cutting-edge web application that utilizes advanced AI and machine learning models to predict the likelihood of various diseases. We focus on providing users with accurate health insights, covering five major disease areas: breast cancer, diabetes, kidney disease, liver disease, and heart disease.
+                        </p>
+                        <h3>What We Do</h3>
+                        <p>
+                            Our platform offers two onboarding processes, one for admins and another for users. Users can log in to access our services, manage their profiles, and review their past predictions. Admins have the ability to track all user prediction data and oversee the platform's operations efficiently.
+                        </p>
+                        <img src="{% static 'img/about-img.jpg' %}" class="img-fluid" alt="About Us Image">
+                    </div>
+                </div>
+    
+                <!-- Right Side: Features -->
+                <div class="col-lg-6">
+                    <div class="features-section">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <div class="icon-box">
+                                        <img src="{% static 'img/prediction.png' %}" alt="Disease Prediction Icon">
+                                    </div>
+                                    <h4>Disease Prediction</h4>
+                                    <p>
+                                        We leverage state-of-the-art AI models to predict the likelihood of various diseases, helping users take proactive steps towards better health.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <div class="icon-box">
+                                        <img src="{% static 'img/user.png' %}" alt="User Monitoring Icon">
+                                    </div>
+                                    <h4>User Monitoring</h4>
+                                    <p>
+                                        Users can track their health data over time, manage their profiles, and review their past predictions, ensuring they stay informed about their health.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <div class="icon-box">
+                                        <img src="{% static 'img/admin.png' %}" alt="Admin Oversight Icon">
+                                    </div>
+                                    <h4>Admin Oversight</h4>
+                                    <p>
+                                        Admins have the tools to monitor all user predictions and manage the platform efficiently, ensuring that everyone receives accurate and timely insights.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <div class="icon-box">
+                                        <img src="{% static 'img/tech.png' %}" alt="Technology Integration Icon">
+                                    </div>
+                                    <h4>Technology Integration</h4>
+                                    <p>
+                                        Our platform is built on Django and integrates seamlessly with machine learning models, providing a robust and reliable user experience.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <div class="icon-box">
+                                        <img src="{% static 'img/support.png' %}" alt="User Support Icon">
+                                    </div>
+                                    <h4>User Support</h4>
+                                    <p>
+                                        We provide comprehensive support to ensure users can effectively use the platform and make informed health decisions.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="team-validation" class="team-validation">
+      <div class="container" data-aos="fade-up">
+          <div class="section-title">
+              <h2>The role of team assessment is key in the development of our product.</h2>
+          </div>
+          <p>
+              The development of our AI-powered medical diagnosis project has been a collaborative effort involving dedicated team members, each contributing their unique expertise. This project leverages machine learning and AI to assist in diagnosing complex medical conditions, potentially transforming healthcare by providing timely and accurate predictions. The success of this project relies not only on advanced technology but also on the seamless integration of various development stages, including backend processes, user interface design, model development, and quality assurance.
+              <br><br>
+          </p>
+          <div class="row">
+              <div class="col-lg-3 col-md-6">
+                  <div class="box">
+                      <h4>Backend Development</h4>
+                      <p>The server-side logic, data processing, and model integration were instrumental in setting up the foundation of the application. This involved designing and implementing server-side logic to handle complex data processing and integrating machine learning models into the backend, creating a robust and scalable system for real-time predictions.</p>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                  <div class="box">
+                      <h4>UI/UX Design</h4>
+                      <p>The focus was on creating a user-friendly and intuitive interface. Understanding that end-users might be healthcare professionals with varying levels of technical expertise, the design aimed to be both functional and aesthetically pleasing, ensuring effortless navigation and access to predictions and patient data.</p>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                  <div class="box">
+                      <h4>Model Design and QA</h4>
+                      <p>The dual role of designing machine learning models and ensuring their accuracy and reliability was critical. The models were designed to predict specific diseases and underwent rigorous testing to validate their performance, ensuring dependable predictions.</p>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                  <div class="box">
+                      <h4>Machine Learning</h4>
+                      <p>The development of core machine learning models that power the application was essential. The models were designed to process complex medical data and provide accurate predictions, determining the overall effectiveness of the diagnosis tool.</p>
+                  </div>
+              </div>
+          </div>
+          <div>
+              <p>Together, these contributions have culminated in a powerful tool that not only meets technical requirements but also addresses the practical needs of healthcare professionals. The collaborative effort demonstrates the importance of interdisciplinary work in developing innovative solutions with real-world impact. This project stands as a testament to the dedication and expertise of each contributor, highlighting how their combined efforts have led to the successful realization of our AI-powered medical diagnosis tool.</p>
+              <p class="text-end" style="color: #6A9C89; font-weight: 500;">- Under the guidance of Dr. Vipul M Dabhi sir</p>
+          </div>
+      </div>
+  </section>
+  
+  
+  
+      <!-- ======= Team Section ======= -->
+      <section id="team" class="team section-bg">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Team</h2>
+            </div>
+  
+          <div class="row">
+  
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+              <div class="member">
+                <div class="member-img">
+                  <img src="{% static 'img/team/Charan.jpg' %}" class="img-fluid" alt="" style="width: 250px; height: 300px;">
+                  <div class="social">
+                    <a ><i class="bi bi-twitter"></i></a>
+                    <a ><i class="bi bi-facebook"></i></a>
+                    <a ><i class="bi bi-instagram"></i></a>
+                    <a ><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>K.V.N.S Guru Charan</h4>
+                  <span>M.L Engineer</span>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+              <div class="member">
+                <div class="member-img">
+                  <img src="{% static 'img/team/Mohit.jpg' %}" class="img-fluid" alt="" style="width: 250px; height: 300px;">
+                  <div class="social">
+                    <a ><i class="bi bi-twitter"></i></a>
+                    <a ><i class="bi bi-facebook"></i></a>
+                    <a ><i class="bi bi-instagram"></i></a>
+                    <a ><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>A Mohit Reddy</h4>
+                  <span>Frontend developer</span>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+              <div class="member">
+                <div class="member-img">
+                  <img src="{% static 'img/team/Nandu.JPG' %}" class="img-fluid" alt="" style="width: 250px; height: 300px;">
+                  <div class="social">
+                    <a ><i class="bi bi-twitter"></i></a>
+                    <a ><i class="bi bi-facebook"></i></a>
+                    <a ><i class="bi bi-instagram"></i></a>
+                    <a ><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>R Nandu Varma</h4>
+                  <span>Backend Developer</span>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+              <div class="member">
+                <div class="member-img">
+                  <img src="{% static 'img/team/Revathi.jpg' %}" class="img-fluid" alt="" style="width: 250px; height: 300px;">
+                  <div class="social">
+                    <a ><i class="bi bi-twitter"></i></a>
+                    <a ><i class="bi bi-facebook"></i></a>
+                    <a ><i class="bi bi-instagram"></i></a>
+                    <a ><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>G Revathi Reddy</h4>
+                  <span>Co-Model Designer & QA</span>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Team Section -->
+  
+      
+      
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Contact</h2>
+            </div>
+  
+          <div>
+            <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d73.3585495!3d22.2886957!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc319c9237f2928e8!2sParul%20University!5e0!3m2!1sen!2sus!4v1645834247982!5m2!1sen!2sus" frameborder="0" allowfullscreen></iframe>
+          </div>
+  
+          <div class="row mt-5">
+  
+            <div class="col-lg-4">
+              <div class="info">
+                <div class="address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Location:</h4>
+                  <p>Post Limda, Waghodia, Gujarat 391760, India</p>
+                </div>
+  
+                <div class="email">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>Paruldesk@hsptl.com</p>
+                </div>
+  
+                <div class="phone">
+                  <i class="bi bi-phone"></i>
+                  <h4>Call:</h4>
+                  <p>+91 82470 70570</p>
+                </div>
+  
+              </div>
+  
+            </div>
+  
+            <div class="col-lg-8 mt-5 mt-lg-0">
+  
+              <form id="contactForm" method="post" class="php-email-form">
+                {% csrf_token %}
+                <div class="row gy-2 gx-md-3">
+                    <div class="col-md-6 form-group">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group col-12">
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group col-12">
+                        <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                    </div>
+                    <div class="text-center col-12">
+                        <button type="submit">Send Message</button>
+                    </div>
+                </div>
+            </form>
+            
+              
+  
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Contact Section -->
+
+
+    </main><!-- End #main -->
+    
+
+{% endblock %}

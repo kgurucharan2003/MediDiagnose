@@ -1,0 +1,183 @@
+{% extends 'user/puserbase.html' %}
+{% load static %}
+{% block contents %}
+
+<section id="hdp-contact" class="hdp-contact">
+    <div class="hdp-container" data-aos="fade-up">
+        <a class="nav-link scrollto " href="{% url 'puserhome' %}#services"><i class="fas fa-arrow-left"></i> Services</a>
+        <div class="hdp-section-title">
+            <h2>Heart Disease Prediction</h2>
+        </div>
+        <div class="hdp-row justify-content-center">
+            <!-- Left Side: Form -->
+            <div class="col-lg-6">
+                <form action="/hdpaction/" method="post" role="form" class="hdp-form">
+                    {% csrf_token %}
+                    <div class="hdp-row gy-3 gx-md-3">
+                        <div class="col-md-6 hdp-form-group">
+                            <label for="age">Age</label>
+                            <input type="text" name="age" class="hdp-form-control" id="age" placeholder="e.g., 45" required>
+                        </div>
+                        <div class="col-md-6 hdp-form-group">
+                            <label for="sex">Sex</label>
+                            <input type="text" name="sex" class="hdp-form-control" id="sex" placeholder="1 for male, 0 for female" required>
+                        </div>
+                        <div class="col-md-6 hdp-form-group">
+                            <label for="cp">Chest Pain Type (cp)</label>
+                            <input type="text" name="cp" class="hdp-form-control" id="cp" placeholder="e.g., 3" required>
+                        </div>
+                        <div class="col-md-6 hdp-form-group">
+                            <label for="trestbps">Resting Blood Pressure (trestbps)</label>
+                            <input type="text" name="trestbps" class="hdp-form-control" id="trestbps" placeholder="e.g., 120" required>
+                        </div>
+                        <div class="col-md-6 hdp-form-group">
+                            <label for="chol">Cholesterol Level (chol)</label>
+                            <input type="text" name="chol" class="hdp-form-control" id="chol" placeholder="e.g., 200" required>
+                        </div>
+                        <div class="col-md-6 hdp-form-group">
+                            <label for="fbs">Fasting Blood Sugar (fbs)</label>
+                            <input type="text" name="fbs" class="hdp-form-control" id="fbs" placeholder="1 if > 120 mg/dL, 0 if not" required>
+                        </div>
+                        <div class="col-md-6 hdp-form-group">
+                            <label for="restecg">Resting ECG (restecg)</label>
+                            <input type="text" name="restecg" class="hdp-form-control" id="restecg" placeholder="e.g., 1" required>
+                        </div>
+                        <div class="col-md-6 hdp-form-group">
+                            <label for="thalach">Maximum Heart Rate  (thalach)</label>
+                            <input type="text" name="thalach" class="hdp-form-control" id="thalach" placeholder="e.g., 150" required>
+                        </div>
+                        <div class="col-md-6 hdp-form-group">
+                            <label for="exang">Exercise Induced Angina (exang)</label>
+                            <input type="text" name="exang" class="hdp-form-control" id="exang" placeholder="1 for yes, 0 for no" required>
+                        </div>
+                        <div class="col-md-6 hdp-form-group">
+                            <label for="oldpeak">ST Depression by Exercise (oldpeak)</label>
+                            <input type="text" name="oldpeak" class="hdp-form-control" id="oldpeak" placeholder="e.g., 2.3" required>
+                        </div>
+                        <div class="col-md-6 hdp-form-group">
+                            <label for="slope">Slope of the Peak Exercise (slope)</label>
+                            <input type="text" name="slope" class="hdp-form-control" id="slope" placeholder="e.g., 1" required>
+                        </div>
+                        <div class="col-md-6 hdp-form-group">
+                            <label for="ca">Number of Major Vessels (ca)</label>
+                            <input type="text" name="ca" class="hdp-form-control" id="ca" placeholder="e.g., 0-3" required>
+                        </div>
+                        <div class="col-md-6 hdp-form-group">
+                            <label for="thal">Thalassemia (thal)</label>
+                            <input type="text" name="thal" class="hdp-form-control" id="thal" placeholder="e.g., 3" required>
+                        </div>
+                        <div class="text-center col-12">
+                            <button type="submit" class="hdp-btn-primary">Predict <i class="fas fa-arrow-right arrow-icon"></i></button>
+                        </div>
+                    </div>
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if "Heart Disease Detected" in message %}
+                                <div class="text-center col-12 hdp-alert">
+                                    <font color='red'>{{ message }}</font>
+                                </div>
+                            {% else %}
+                                <div class="text-center col-12 other-alert">
+                                    <font color='white'>{{ message }}</font>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+                </form>
+            </div>
+
+            <!-- Right Side: Image -->
+            <div class="col-lg-6 d-flex align-items-center">
+                <img src="https://www.medicoverhospitals.in/images/preventive/heart-checkup-medicover-hospitals.webp" alt="Heart Health Image" class="hdp-img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section for Detailed Information on Obtaining Values -->
+<section id="hdp-info" class="hdp-info mt-5">
+    <div class="hdp-container">
+        <div class="hdp-section-title">
+            <h2>How to Obtain Your Health Data</h2>
+        </div>
+        <div class="hdp-row">
+            <div class="col-md-6">
+                <h4>Age</h4>
+                <small class="hdp-form-text">Enter your age in years. This should be your current age as of today.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Sex</h4>
+                <small class="hdp-form-text">Enter 1 if you are male and 0 if you are female. This is important because heart disease risk can vary between genders.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Chest Pain Type (cp)</h4>
+                <small class="hdp-form-text">Chest pain type ranges from 0 to 3, where:
+                    <ul>
+                        <li>0: Typical angina</li>
+                        <li>1: Atypical angina</li>
+                        <li>2: Non-anginal pain</li>
+                        <li>3: Asymptomatic</li>
+                    </ul>
+                    Consult your doctor to determine which type applies to you.
+                </small>
+            </div>
+            <div class="col-md-6">
+                <h4>Resting Blood Pressure (trestbps)</h4>
+                <small class="hdp-form-text">Measure your resting blood pressure with a home monitor or at a clinic. This value should be in millimeters of mercury (mm Hg).</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Cholesterol Level (chol)</h4>
+                <small class="hdp-form-text">This value is obtained from a blood test and should be in milligrams per deciliter (mg/dL). You can get it tested at a clinic or use a home test kit.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Fasting Blood Sugar (fbs)</h4>
+                <small class="hdp-form-text">If your fasting blood sugar is greater than 120 mg/dL, enter 1; otherwise, enter 0. This value can be obtained from a blood test after fasting for 8-12 hours.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Resting ECG (restecg)</h4>
+                <small class="hdp-form-text">An electrocardiogram (ECG) test records the electrical activity of your heart. This test is typically done at a doctor's office or hospital.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Maximum Heart Rate Achieved (thalach)</h4>
+                <small class="hdp-form-text">This is the highest heart rate you achieve during exercise. It can be measured during a stress test or by using a heart rate monitor while exercising.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Exercise Induced Angina (exang)</h4>
+                <small class="hdp-form-text">Enter 1 if you experience angina (chest pain) during exercise, and 0 if you do not. This is usually determined during a stress test.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>ST Depression Induced by Exercise (oldpeak)</h4>
+                <small class="hdp-form-text">This value represents the difference in the ST segment of your ECG during exercise compared to rest. It's measured during a stress test.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Slope of the Peak Exercise ST Segment (slope)</h4>
+                <small class="hdp-form-text">This value indicates the slope of the ST segment during peak exercise in an ECG. It ranges from 0 to 2:
+                    <ul>
+                        <li>0: Upsloping</li>
+                        <li>1: Flat</li>
+                        <li>2: Downsloping</li>
+                    </ul>
+                    This is usually determined during an exercise stress test. Consult your healthcare provider for accurate measurement.
+                </small>
+            </div>
+            <div class="col-md-6">
+                <h4>Number of Major Vessels (ca)</h4>
+                <small class="hdp-form-text">This value represents the number of major blood vessels (0-3) that are colored by fluoroscopy (a type of medical imaging). This test is often conducted in a hospital setting during a cardiac evaluation.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Thalassemia (thal)</h4>
+                <small class="hdp-form-text">Thalassemia refers to a blood disorder involving less than normal oxygen-carrying protein (hemoglobin) in red blood cells. The values typically range from:
+                    <ul>
+                        <li>1: Normal</li>
+                        <li>2: Fixed defect</li>
+                        <li>3: Reversible defect</li>
+                    </ul>
+                    This is typically diagnosed through a blood test. Consult your doctor for this value if applicable.
+                </small>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

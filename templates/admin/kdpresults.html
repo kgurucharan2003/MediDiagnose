@@ -1,0 +1,60 @@
+{% extends 'admin/adminbase.html' %}
+{% load static %}
+{% block contents %}
+
+<section id="contact" class="contact">
+    <div class="container"  data-aos="fade-up">
+        <div class="section-title">
+            <h2>Kidney Disease Prediction</h2>
+            </div>
+            <div class="col-md-12">
+             <table style="border-collapse: collapse; width: 100%; border: 2px solid #000;">
+                    <thead>
+                    <tr style="background-color: #2487ce; color: #fff;">
+                        <th scope="col">S.No</th>
+                        <th scope="col">user_email</th>
+                        <th scope="col">Bp</th>
+                        <th scope="col">Sg</th>
+                        <th scope="col">al</th>
+                        <th scope="col">Su</th>
+                        <th scope="col">Rbc</th>
+                        <th scope="col">Bu</th>
+                        <th scope="col">Sc</th>
+                        <th scope="col">Sod</th>
+                        <th scope="col">Pot</th>
+                        <th scope="col">Hemo</th>
+                        <th scope="col">Wbcc</th>
+                        <th scope="col">Rbcc</th>
+                        <th scope="col">Htn</th>
+                        <th scope="col">Result 0-no 1-yes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                    <tr scope="row">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.user_email}}</td>
+                        <td>{{i.bp}}</td>
+                        <td>{{i.sg}}</td>
+                        <td>{{i.al}}</td>
+                        <td>{{i.su}}</td>
+                        <td>{{i.rbc}}</td>
+                        <td>{{i.bu}}</td>
+                        <td>{{i.sc}}</td>
+                        <td>{{i.sod}}</td>
+                        <td>{{i.pot}}</td>
+                        <td>{{i.hemo}}</td>
+                        <td>{{i.wbcc}}</td>
+                        <td>{{i.rbcc}}</td>
+                        <td>{{i.htn}}</td>
+                        <td>{{i.custom_predictions}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+    </div>
+</section>
+
+{% endblock %}

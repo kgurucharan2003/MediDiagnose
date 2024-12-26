@@ -1,0 +1,160 @@
+{% extends 'user/puserbase.html' %}
+{% load static %}
+{% block contents %}
+
+<section id="kdp-contact" class="kdp-contact">
+    <div class="kdp-container" data-aos="fade-up">
+        <a class="nav-link scrollto" href="{% url 'puserhome' %}#services"><i class="fas fa-arrow-left"></i> Services</a>
+        <div class="kdp-section-title">
+            <h2>Kidney Disease Prediction</h2>
+        </div>
+        <div class="kdp-row justify-content-center">
+            <!-- Left Side: Form -->
+            <div class="col-lg-6">
+                <form action="/kdpaction/" method="post" role="form" class="kdp-form">
+                    {% csrf_token %}
+                    <div class="kdp-row gy-3 gx-md-3">
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Bp">Blood Pressure (Bp)</label>
+                            <input type="text" name="Bp" class="kdp-form-control" id="Bp" placeholder="Enter Bp (80-180 mm Hg)" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Sg">Specific Gravity (Sg)</label>
+                            <input type="text" name="Sg" class="kdp-form-control" id="Sg" placeholder="Enter Sg (1.005-1.030)" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Al">Albumin (Al)</label>
+                            <input type="text" name="Al" class="kdp-form-control" id="Al" placeholder="Enter Al (0-5 mg/dL)" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Su">Sugar (Su)</label>
+                            <input type="text" name="Su" class="kdp-form-control" id="Su" placeholder="Enter Su (0-5 mmol/L)" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Rbc">Red Blood Cells (Rbc)</label>
+                            <input type="text" name="Rbc" class="kdp-form-control" id="Rbc" placeholder="Enter Rbc (0-10 cells/μL)" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Bu">Blood Urea (Bu)</label>
+                            <input type="text" name="Bu" class="kdp-form-control" id="Bu" placeholder="Enter Bu (7-20 mg/dL)" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Sc">Serum Creatinine (Sc)</label>
+                            <input type="text" name="Sc" class="kdp-form-control" id="Sc" placeholder="Enter Sc (0.6-1.2 mg/dL)" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Sod">Sodium (Sod)</label>
+                            <input type="text" name="Sod" class="kdp-form-control" id="Sod" placeholder="Enter Sod (135-145 mmol/L)" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Pot">Potassium (Pot)</label>
+                            <input type="text" name="Pot" class="kdp-form-control" id="Pot" placeholder="Enter Pot (3.5-5.0 mmol/L)" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Hemo">Hemoglobin (Hemo)</label>
+                            <input type="text" name="Hemo" class="kdp-form-control" id="Hemo" placeholder="Enter Hemo (12-16 g/dL)" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Wbcc">White Blood Cell Count (Wbcc)</label>
+                            <input type="text" name="Wbcc" class="kdp-form-control" id="Wbcc" placeholder="Enter Wbcc (4,000-11,000 cells/μL)" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Rbcc">Red Blood Cell Count (Rbcc)</label>
+                            <input type="text" name="Rbcc" class="kdp-form-control" id="Rbcc" placeholder="Enter Rbcc (4.5-5.5 million cells/μL)" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Htn">Hypertension (Htn)</label>
+                            <input type="text" name="Htn" class="kdp-form-control" id="Htn" placeholder="Enter Htn (Yes/No)" required>
+                        </div>
+                        <div class="text-center col-12">
+                            <button type="submit" class="kdp-btn-primary">Predict <i class="fas fa-arrow-right arrow-icon"></i></button>
+                        </div>
+                    </div>
+                    {% if messages %}
+                    {% for message in messages %}
+                      {% if "Kidney Disease Detected" in message %}
+                      <div class="text-center col-12 kdp-alert">
+                          <font color='red'>{{ message }}</font>
+                          </div>
+                          {% else %}
+                          <div class="text-center col-12 other-alert">
+                          <font color='white'>{{ message }}</font>
+                      </div>
+                              {% endif %}
+                          {% endfor %}
+                      {% endif %}
+                </form>
+            </div>
+
+            <!-- Right Side: Image -->
+            <div class="col-lg-6 d-flex align-items-center">
+                <img src="https://irp.cdn-website.com/7b6da791/dms3rep/multi/Copy+of+Rocky+Vista+Nov+SocialPost4.png" alt="Kidney Health Image" class="kdp-img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section for Detailed Information on Obtaining Values -->
+<section id="kdp-info" class="kdp-info mt-5">
+    <div class="kdp-container">
+        <div class="kdp-section-title">
+            <h2>How to Obtain Your Health Data</h2>
+        </div>
+        <div class="kdp-row">
+            <div class="col-md-6">
+                <h4>Blood Pressure (Bp)</h4>
+                <small class="kdp-form-text">Measure your blood pressure with a home monitor or at a clinic. This value should be in millimeters of mercury (mm Hg).</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Specific Gravity (Sg)</h4>
+                <small class="kdp-form-text">Specific gravity of urine measures the concentration of solutes in urine. It can be measured with a urine test strip or in a laboratory.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Albumin (Al)</h4>
+                <small class="kdp-form-text">This value represents the amount of albumin in your urine, which can be tested with a urine dipstick or in a lab.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Sugar (Su)</h4>
+                <small class="kdp-form-text">This value indicates the amount of sugar in your urine. It can be tested with a urine dipstick.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Red Blood Cells (Rbc)</h4>
+                <small class="kdp-form-text">This value represents the presence of red blood cells in your urine, which can indicate kidney issues. A urine test can measure this.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Blood Urea (Bu)</h4>
+                <small class="kdp-form-text">Blood urea nitrogen (BUN) levels can be determined through a blood test and indicate how well your kidneys are functioning.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Serum Creatinine (Sc)</h4>
+                <small class="kdp-form-text">This value measures the amount of creatinine in your blood, which helps evaluate kidney function. It is determined through a blood test.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Sodium (Sod)</h4>
+                <small class="kdp-form-text">Sodium levels in your blood can be tested through a blood test to assess your kidney's ability to balance salt and water.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Potassium (Pot)</h4>
+                <small class="kdp-form-text">This value indicates the amount of potassium in your blood. Abnormal levels can be a sign of kidney issues.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Hemoglobin (Hemo)</h4>
+                <small class="kdp-form-text">Hemoglobin is a protein in red blood cells that carries oxygen. Low levels can be associated with kidney disease.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>White Blood Cell Count (Wbcc)</h4>
+                <small class="kdp-form-text">The number of white blood cells in your blood helps identify potential infections or inflammation that could be related to kidney problems.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Red Blood Cell Count (Rbcc)</h4>
+                <small class="kdp-form-text">This value represents the number of red blood cells in your blood, which can help assess anemia related to kidney disease.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Hypertension (Htn)</h4>
+                <small class="kdp-form-text">Hypertension (high blood pressure) is a common risk factor for kidney disease. Regular blood pressure checks are important.</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

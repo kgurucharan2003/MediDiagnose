@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ disease_type }} Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .email-header {
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .email-content {
+            padding: 20px;
+            line-height: 1.6;
+            color: #333333;
+        }
+        .email-content h2 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+        .email-content p {
+            margin: 0;
+        }
+        .result {
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .result-detected {
+            color: #ff0000; /* Red color for detected */
+        }
+        .result-not-detected {
+            color: #4CAF50; /* Green color for not detected */
+        }
+        .email-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #777777;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Email Header -->
+        <div class="email-header">
+            <h1>{{ disease_type }} Prediction Result</h1>
+        </div>
+
+        <!-- Email Content -->
+        <div class="email-content">
+            <h2>Dear User,</h2>
+            <p>We have completed the analysis based on the details you provided. Below are your {{ disease_type }} prediction results:</p>
+            
+            <!-- Prediction Result -->
+            <p class="result {{ result_class }}">
+                Prediction Result: {{ prediction_message }}
+            </p>
+            
+            <p>If the result is positive, we strongly recommend that you consult a healthcare professional for further evaluation and advice.</p>
+            
+            <p>Thank you for using our services.</p>
+        </div>
+
+        <!-- Email Footer -->
+        <div class="email-footer">
+            <p>&copy; 2024 MediDiagnose. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,203 @@
+{% extends 'user/puserbase.html' %}
+{% load static %}
+{% block contents %}
+<section id="services" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Services</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box iconbox-blue">
+                    <div class="icon">
+                        <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
+                        </svg>
+                        <i class="bx bxl-dribbble"></i>
+                    </div>
+                    <h4><a href="{% url 'hdp' %}">Heart Disease Prediction</a></h4>
+                    <p class="description">Click here to get Hands-on Prediction</p>
+                    <p>A leading cause of morbidity worldwide, encompasses various conditions affecting the heart and blood vessels, including coronary artery disease, heart attacks, and arrhythmias.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box iconbox-orange">
+                    <div class="icon">
+                        <!--?xml version="1.0" standalone="no"?-->              <svg id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">                    <defs>                         <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">                            <stop id="stop1" stop-color="rgba(248, 117, 55, 1)" offset="0%"></stop>                            <stop id="stop2" stop-color="rgba(251, 168, 31, 1)" offset="100%"></stop>                        </linearGradient>                    </defs>                <path fill="url(#sw-gradient)" d="M17.1,-29.6C22.6,-26.3,28,-22.8,30.4,-17.8C32.9,-12.8,32.5,-6.4,31.9,-0.3C31.3,5.8,30.6,11.5,28.9,17.8C27.1,24,24.4,30.7,19.4,34.8C14.4,38.9,7.2,40.4,-0.5,41.3C-8.2,42.2,-16.4,42.5,-21.9,38.6C-27.4,34.8,-30.2,26.9,-34,19.8C-37.8,12.7,-42.7,6.3,-44.4,-1C-46.1,-8.3,-44.7,-16.6,-39.3,-21.1C-34,-25.7,-24.8,-26.4,-17.6,-28.7C-10.4,-31.1,-5.2,-35.1,0.3,-35.6C5.7,-36,11.5,-33,17.1,-29.6Z" width="100%" height="100%" transform="translate(50 50)" stroke-width="0" style="transition: 0.3s;"></path>              </svg>
+                        <i class="bx bx-file"></i>
+                    </div>
+                    <h4 class="title"><a href="{% url 'kdp' %}">Kidney disease prediction</a></h4>
+                    <p class="description">Click here to get Hands-on Prediction</p>
+                    <p>A prevalent health concern, encompasses a range of conditions affecting the kidneys' function, including chronic kidney disease, kidney stones, and urinary tract infections.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box iconbox-pink">
+                    <div class="icon">
+                        <!--?xml version="1.0" standalone="no"?-->              <svg id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">                    <defs>                         <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">                            <stop id="stop1" stop-color="rgba(199.71, 199.244, 212.566, 1)" offset="0%"></stop>                            <stop id="stop2" stop-color="rgba(31, 251, 82.925, 1)" offset="100%"></stop>                        </linearGradient>                    </defs>                <path fill="url(#sw-gradient)" d="M14.4,-27.5C17.5,-23.2,18.1,-17,22,-12.1C26,-7.2,33.4,-3.6,34.4,0.6C35.5,4.8,30.2,9.6,26.1,14.2C22,18.8,18.9,23.1,14.7,24.5C10.6,25.9,5.3,24.3,-0.7,25.5C-6.7,26.7,-13.3,30.7,-20.4,31C-27.6,31.3,-35.2,28,-37.8,22.2C-40.4,16.5,-38.1,8.2,-34.4,2.1C-30.7,-4,-25.7,-7.9,-22.6,-12.9C-19.5,-17.9,-18.3,-23.8,-14.9,-27.9C-11.5,-32,-5.7,-34.3,0,-34.2C5.7,-34.2,11.3,-31.8,14.4,-27.5Z" width="100%" height="100%" transform="translate(50 50)" stroke-width="0" style="transition: 0.3s;"></path>              </svg>
+                        <i class="bx bx-tachometer"></i>
+                    </div>
+                    <h4 class="title"><a href="{% url 'bdp' %}">Breast Disease prediction</a></h4>
+                    <p class="description">Click here to get Hands-on Prediction</p>
+                    <p>A multifaceted health issue, encompasses diverse conditions such as fatty liver disease, hepatitis, and cirrhosis. Understanding its causes, symptoms, and treatment options is essential for maintaining liver health and preventing serious complications.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box iconbox-yellow">
+                    <div class="icon">
+                        <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
+                </svg>
+                        <i class="bx bx-layer"></i>
+                    </div>
+                    <h4 class="title"><a href="{% url 'dp' %}">Diabetes prediction</a></h4>
+                    <p class="description">Click here to get Hands-on Prediction</p>
+                    <p>A complex disease characterized by the uncontrolled growth of abnormal cells, can affect virtually any part of the body. It requires a comprehensive approach to treatment, including surgery, chemotherapy, and radiation therapy, along with lifestyle changes to manage risk factors and improve outcomes.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box iconbox-red">
+                    <div class="icon">
+                        <!--?xml version="1.0" standalone="no"?-->              <svg id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">                    <defs>                         <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">                            <stop id="stop1" stop-color="rgba(217.12, 178.626, 7.356, 1)" offset="0%"></stop>                            <stop id="stop2" stop-color="rgba(251, 31, 203.174, 1)" offset="100%"></stop>                        </linearGradient>                    </defs>                <path fill="url(#sw-gradient)" d="M31.5,-17.7C38.7,-5.7,41,9.6,34.9,20C28.8,30.5,14.4,36,0,36C-14.4,36,-28.9,30.5,-33.3,21C-37.8,11.5,-32.3,-2,-25.1,-13.9C-17.8,-25.9,-8.9,-36.3,1.6,-37.2C12.2,-38.2,24.3,-29.6,31.5,-17.7Z" width="100%" height="100%" transform="translate(50 50)" stroke-width="0" style="transition: 0.3s;"></path>              </svg>
+                        <i class="bx bx-slideshow"></i>
+                    </div>
+                    <h4 class="title"><a href="{% url 'ldp' %}">Liver disease prediction</a></h4>
+                    <p class="description">Click here to get Hands-on Prediction</p>
+                    <p>A significant global health issue, obesity is linked to numerous chronic diseases, including diabetes, cardiovascular disease, and certain cancers. Managing obesity involves lifestyle changes, medical interventions, and sometimes surgical options.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% comment %} <div class="row icon-boxes services section-bg" id='services'>
+    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+        <div class="icon-box">
+        <div class="icon"><i class="ri-stack-line"></i></div>
+        <h4 class="title"><a href="{% url 'hdp' %}">Heart Disease Prediction</a></h4>
+        <p class="description">Click here to get Hands-on Prediction</p>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
+        <div class="icon-box">
+        <div class="icon"><i class="ri-stack-line"></i></div>
+        <h4 class="title"><a href="{% url 'kdp' %}">Kidney disease prediction</a></h4>
+        <p class="description">Click here to get Hands-on Prediction</p>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
+        <div class="icon-box">
+        <div class="icon"><i class="ri-stack-line"></i></div>
+        <h4 class="title"><a href="{% url 'bdp' %}">Breast Disease prediction</a></h4>
+        <p class="description">Click here to get Hands-on Prediction</p>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="500">
+        <div class="icon-box">
+        <div class="icon"><i class="ri-stack-line"></i></div>
+        <h4 class="title"><a href="{% url 'dp' %}">Diabetes prediction</a></h4>
+        <p class="description">Click here to get Hands-on Prediction</p>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon-box">
+        <div class="icon"><i class="ri-stack-line"></i></div>
+        <h4 class="title"><a href="{% url 'ldp' %}">Liver disease prediction</a></h4>
+        <p class="description">Click here to get Hands-on Prediction</p>
+        </div>
+    </div>
+</div> {% endcomment %}
+<section id="about-us">
+    <div class="container">
+        <div class="row">
+            <!-- Left Side: About Us and What We Do -->
+            <div class="col-lg-6">
+                <div class="about-us-content">
+                    <h2>About Us</h2>
+                    <p>
+                        AI Powered Medical Diagnosis is a cutting-edge web application that utilizes advanced AI and machine learning models to predict the likelihood of various diseases. We focus on providing users with accurate health insights, covering five major disease areas: breast cancer, diabetes, kidney disease, liver disease, and heart disease.
+                    </p>
+                    <h3>What We Do</h3>
+                    <p>
+                        Our platform offers two onboarding processes, one for admins and another for users. Users can log in to access our services, manage their profiles, and review their past predictions. Admins have the ability to track all user prediction data and oversee the platform's operations efficiently.
+                    </p>
+                    <img src="{% static 'img/about-img.jpg' %}" class="img-fluid" alt="About Us Image">
+                </div>
+            </div>
+
+            <!-- Right Side: Features -->
+            <div class="col-lg-6">
+                <div class="features-section">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="feature-box">
+                                <div class="icon-box">
+                                    <img src="{% static 'img/prediction.png' %}" alt="Disease Prediction Icon">
+                                </div>
+                                <h4>Disease Prediction</h4>
+                                <p>
+                                    We leverage state-of-the-art AI models to predict the likelihood of various diseases, helping users take proactive steps towards better health.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-box">
+                                <div class="icon-box">
+                                    <img src="{% static 'img/user.png' %}" alt="User Monitoring Icon">
+                                </div>
+                                <h4>User Monitoring</h4>
+                                <p>
+                                    Users can track their health data over time, manage their profiles, and review their past predictions, ensuring they stay informed about their health.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-box">
+                                <div class="icon-box">
+                                    <img src="{% static 'img/admin.png' %}" alt="Admin Oversight Icon">
+                                </div>
+                                <h4>Admin Oversight</h4>
+                                <p>
+                                    Admins have the tools to monitor all user predictions and manage the platform efficiently, ensuring that everyone receives accurate and timely insights.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-box">
+                                <div class="icon-box">
+                                    <img src="{% static 'img/tech.png' %}" alt="Technology Integration Icon">
+                                </div>
+                                <h4>Technology Integration</h4>
+                                <p>
+                                    Our platform is built on Django and integrates seamlessly with machine learning models, providing a robust and reliable user experience.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-box">
+                                <div class="icon-box">
+                                    <img src="{% static 'img/support.png' %}" alt="User Support Icon">
+                                </div>
+                                <h4>User Support</h4>
+                                <p>
+                                    We provide comprehensive support to ensure users can effectively use the platform and make informed health decisions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

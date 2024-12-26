@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Medi-Diagnose</title>
+  <meta name="description" content="AI Powered Medical Diagnosis - Efficient and Accurate Health Solutions">
+  <meta name="keywords" content="AI, Medical Diagnosis, Healthcare, AI Healthcare">
+  <link rel="icon" type="image/x-icon" href={% static 'img/w-logo.png' %}>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="{% url 'puserhome' %}"> <img src="{% static 'img/w-logo.png' %}"  alt="logo"> Medi-Diagnose</a></h1>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="{% url 'puserhome' %}">Home</a></li>
+          <li><a class="nav-link scrollto " href="{% url 'puserhome' %}#services">Services</a></li>
+          <li><a class="nav-link scrollto " href="{% url 'puserredictions' %}">Predictions</a></li>
+          <li><a class="getstarted scrollto" href="{% url 'userprofile' %}">Profile</a></li>
+          <li><a class="getstarted scrollto" href="{% url 'puserlogout' %}">logout</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  {% if request.path != '/userprofile/' and request.path != '/puserredictions/' and request.path != '/hdp/' and request.path != '/hdpaction/' and request.path != '/hdpResults/'  and request.path != '/bdp/' and request.path != '/bdpResults/' and request.path != '/bdpaction/' and request.path != '/kdp/' and request.path != '/kdpaction/' and request.path != '/kdpResults/' and request.path != '/dp/' and request.path != '/dpaction/' and request.path != '/dpResults/' and request.path != '/ldp/' and request.path != '/ldpaction/' and request.path != '/ldpResults/' %}
+<section id="hero" class="d-flex align-items-center">
+  <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 text-center text-lg-start d-flex flex-column justify-content-center">
+          <h1><span>Take care</span> of your</h1>
+          <h1>health with care</h1>
+          <p>We are dedicated to offering comprehensive health services and reliable medical information. Our platform facilitates seamless connections to a wide range of healthcare services, ensuring that your well-being is always a priority.</p>
+
+          <div class="cta-buttons">
+            <a href="#services" class="btn-get-started">Get Started <i class="fas fa-arrow-right arrow-icon"></i></a>
+            <a href="#about-us" class="btn-learn-more">Learn More <i class="fas fa-arrow-right arrow-icon"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-center align-items-end">
+          <img src="{% static 'img/doc.png' %}" class="img-fluid hero-img" alt="" data-aos="zoom-out" data-aos-delay="200">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% block contents %}
+{% endblock %}
+<!-- End Hero -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>AI Powered Medical Diagnosis</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+           Designed by <a href="https://paruluniversity.ac.in/" target="_blank">paruluniversity</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a  class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a  class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a  class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a  class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a  class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

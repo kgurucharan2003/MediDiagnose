@@ -1,0 +1,41 @@
+{% extends 'admin/adminbase.html' %}
+{% load static %}
+{% block contents %}
+
+<section id="contact" class="contact">
+    <div class="container"  data-aos="fade-up">
+        <div class="section-title">
+            <h2>Registred users</h2>
+            </div>
+            <div class="col-md-12">
+                <table style="border-collapse: collapse; width: 100%; border: 2px solid #000;">
+                    <thead>
+                    <tr style="background-color: #2487ce; color: #fff;">
+                        <th scope="col">S.No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                    <tr scope="row">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.phone}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.city}}</td>
+                        <td><a href='/admindeleteuser/?uid={{i.id}}'>Delete</a></td>
+                    </tr>
+
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+    </div>
+</section>
+
+{% endblock %}

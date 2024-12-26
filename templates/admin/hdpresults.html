@@ -1,0 +1,60 @@
+{% extends 'admin/adminbase.html' %}
+{% load static %}
+{% block contents %}
+
+<section id="contact" class="contact">
+    <div class="container"  data-aos="fade-up">
+        <div class="section-title">
+            <h2>Heart Disease Prediction</h2>
+            </div>
+            <div class="col-md-12">
+             <table style="border-collapse: collapse; width: 100%; border: 2px solid #000;">
+                    <thead>
+                    <tr style="background-color: #2487ce; color: #fff;">
+                        <th scope="col">S.No</th>
+                        <th scope="col">user_email</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Sex</th>
+                        <th scope="col">Cp</th>
+                        <th scope="col">Trestbps</th>
+                        <th scope="col">Chol</th>
+                        <th scope="col">Fbs</th>
+                        <th scope="col">Restecg</th>
+                        <th scope="col">Thalach</th>
+                        <th scope="col">Exang</th>
+                        <th scope="col">Oldpeak</th>
+                        <th scope="col">Slope</th>
+                        <th scope="col">Ca</th>
+                        <th scope="col">Thal</th>
+                        <th scope="col">Result 0-no 1-yes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                    <tr scope="row">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.user_email}}</td>
+                        <td>{{i.age}}</td>
+                        <td>{{i.sex}}</td>
+                        <td>{{i.cp}}</td>
+                        <td>{{i.trestbps}}</td>
+                        <td>{{i.chol}}</td>
+                        <td>{{i.fbs}}</td>
+                        <td>{{i.restecg}}</td>
+                        <td>{{i.thalach}}</td>
+                        <td>{{i.exang}}</td>
+                        <td>{{i.oldpeak}}</td>
+                        <td>{{i.slope}}</td>
+                        <td>{{i.ca}}</td>
+                        <td>{{i.thal}}</td>
+                        <td>{{i.custom_predictions}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+    </div>
+</section>
+
+{% endblock %}

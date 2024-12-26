@@ -1,0 +1,123 @@
+{% extends 'user/puserbase.html' %}
+{% load static %}
+{% block contents %}
+
+<section id="kdp-contact" class="kdp-contact">
+    <div class="container" data-aos="fade-up">
+      <a class="nav-link scrollto " href="{% url 'puserhome' %}#services"><i class="fas fa-arrow-left"></i> Services</a>
+        <div class="section-title">
+            <h2>Diabetes Prediction</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-6 mt-3 mt-lg-0">
+                <form action="/dpaction/" method="post" role="form" class="kdp-form">
+                    {% csrf_token %}
+                    <div class="row gy-3 gx-md-3">
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Pregnancies">Pregnancies</label>
+                            <input type="text" name="Pregnancies" class="kdp-form-control" id="Pregnancies" placeholder="e.g., 0-20" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Glucose">Glucose</label>
+                            <input type="text" name="Glucose" class="kdp-form-control" id="Glucose" placeholder="e.g., 70-199" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="BloodPressure">Blood Pressure</label>
+                            <input type="text" name="BloodPressure" class="kdp-form-control" id="BloodPressure" placeholder="e.g., 30-122" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="SkinThickness">Skin Thickness</label>
+                            <input type="text" name="SkinThickness" class="kdp-form-control" id="SkinThickness" placeholder="e.g., 0-99" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Insulin">Insulin</label>
+                            <input type="text" name="Insulin" class="kdp-form-control" id="Insulin" placeholder="e.g., 0-846" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="BMI">BMI</label>
+                            <input type="text" name="BMI" class="kdp-form-control" id="BMI" placeholder="e.g., 18-67" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function</label>
+                            <input type="text" name="DiabetesPedigreeFunction" class="kdp-form-control" id="DiabetesPedigreeFunction" placeholder="e.g., 0.078-2.42" required>
+                        </div>
+                        <div class="col-md-6 kdp-form-group">
+                            <label for="Age">Age</label>
+                            <input type="text" name="Age" class="kdp-form-control" id="Age" placeholder="e.g., 21-81" required>
+                        </div>
+
+                        <div class="text-center col-12">
+                            <button type="submit" class="kdp-btn-primary">Predict <i class="fas fa-arrow-right arrow-icon"></i></button>
+                        </div>
+                    </div>
+                    {% if messages %}
+                    {% for message in messages %}
+                      {% if "Diabetes Detected" in message %}
+                      <div class="text-center col-12 dp-alert">
+                          <font color='red'>{{ message }}</font>
+                          </div>
+                          {% else %}
+                          <div class="text-center col-12 other-alert">
+                          <font color='white'>{{ message }}</font>
+                      </div>
+                              {% endif %}
+                          {% endfor %}
+                      {% endif %}
+
+                </form>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center">
+              <img
+                src="https://img.freepik.com/premium-photo/world-diabetes-day-highlights-global-health-challenge_1274199-1156.jpg"
+                alt="Kidney Health Image"
+                class="dp-img-fluid"
+              />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section for Detailed Information on Obtaining Values -->
+<section id="kdp-info" class="kdp-info mt-5">
+    <div class="container">
+        <div class="section-title">
+            <h2>How to Obtain Your Health Data</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Pregnancies</h4>
+                <small class="kdp-form-text">Enter the number of pregnancies you have had. This value typically ranges from 0 to 20.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Glucose</h4>
+                <small class="kdp-form-text">Enter your glucose level. This value usually ranges from 70 to 199 mg/dL. Obtain this from a blood test.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Blood Pressure</h4>
+                <small class="kdp-form-text">Measure your blood pressure in mm Hg. Normal values range from 30 to 122 mm Hg.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Skin Thickness</h4>
+                <small class="kdp-form-text">Measure the thickness of your skin using calipers, with typical values ranging from 0 to 99 mm.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Insulin</h4>
+                <small class="kdp-form-text">Enter your insulin level, which can range from 0 to 846 µU/mL. This can be measured via a blood test.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>BMI</h4>
+                <small class="kdp-form-text">Your Body Mass Index (BMI) is calculated based on your weight and height. Typical values range from 18 to 67.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Diabetes Pedigree Function</h4>
+                <small class="kdp-form-text">This value ranges from 0.078 to 2.42 and is used to assess the likelihood of diabetes based on family history.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Age</h4>
+                <small class="kdp-form-text">Enter your age in years. Typical values range from 21 to 81.</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

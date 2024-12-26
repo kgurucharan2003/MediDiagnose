@@ -1,0 +1,159 @@
+{% extends 'user/puserbase.html' %}
+{% load static %}
+{% block contents %}
+
+<section id="bdp-contact" class="bdp-contact">
+    <div class="bdp-container" data-aos="fade-up">
+      <a class="nav-link scrollto " href="{% url 'puserhome' %}#services"><i class="fas fa-arrow-left"></i> Services</a>
+        <div class="bdp-section-title">
+            <h2>Breast Disease Prediction</h2>
+        </div>
+        <div class="bdp-row justify-content-center">
+            <!-- Left Side: Form -->
+            <div class="col-lg-6">
+                <form action="/bdpaction/" method="post" role="form" class="bdp-form">
+                    {% csrf_token %}
+                    <div class="bdp-row gy-3 gx-md-3">
+                        <div class="col-md-6 bdp-form-group">
+                            <label for="Age">Age</label>
+                            <input type="text" name="Age" class="bdp-form-control" id="Age" placeholder="Enter Age" required>
+                        </div>
+                        <div class="col-md-6 bdp-form-group">
+                            <label for="Menopause">Menopause</label>
+                            <select name="Menopause" class="bdp-form-control" id="Menopause" required>
+                                <option value="" disabled selected>Select Menopause</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 bdp-form-group">
+                            <label for="Tumor">Tumor Size (cm)</label>
+                            <select name="Tumor" class="bdp-form-control" id="Tumor" required>
+                                <option value="" disabled selected>Select Tumor Size (cm)</option>
+                                <option value="0">0 cm</option>
+                                <option value="1">1 cm</option>
+                                <option value="2">2 cm</option>
+                                <option value="3">3 cm</option>
+                                <option value="4">4 cm</option>
+                                <option value="5">5 cm</option>
+                                <option value="6">6 cm</option>
+                                <option value="7">7 cm</option>
+                                <option value="8">8 cm</option>
+                                <option value="9">9 cm</option>
+                                <option value="10">10 cm</option>
+                                <option value="11">11 cm</option>
+                                <option value="12">12 cm</option>
+                                <option value="13">13 cm</option>
+                                <option value="14">14 cm</option>
+                                <option value="15">15 cm</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 bdp-form-group">
+                            <label for="Inv-Nodes">Inv-Nodes</label>
+                            <input type="text" name="Inv-Nodes" class="bdp-form-control" id="Inv-Nodes" placeholder="Enter Inv-Nodes" required>
+                        </div>
+                        <div class="col-md-6 bdp-form-group">
+                            <label for="Breast">Breast</label>
+                            <select name="Breast" class="bdp-form-control" id="Breast" required>
+                                <option value="" disabled selected>Select Breast</option>
+                                <option value="2">Right</option>
+                                <option value="1">Left</option>
+                                <option value="0">Both</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 bdp-form-group">
+                            <label for="Metastasis">Metastasis</label>
+                            <input type="text" name="Metastasis" class="bdp-form-control" id="Metastasis" placeholder="Enter Metastasis" required>
+                        </div>
+                        <div class="col-md-6 bdp-form-group">
+                            <label for="BreastQuadrant">Breast Quadrant</label>
+                            <select name="Breast-Quadrant" class="bdp-form-control" id="BreastQuadrant" required>
+                                <option value="" disabled selected>Select Breast Quadrant</option>
+                                <option value="3">Upper inner</option>
+                                <option value="4">Upper outer</option>
+                                <option value="1">Lower inner</option>
+                                <option value="2">Lower outer</option>
+                                <option value="0">Both</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 bdp-form-group">
+                            <label for="History">History</label>
+                            <select name="History" class="bdp-form-control" id="History" required>
+                                <option value="" disabled selected>Select History</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                        <div class="text-center col-12">
+                        <button type="submit" class="bdp-btn-primary">
+                            Predict <i class="fas fa-arrow-right arrow-icon"></i>
+                        </button>
+                    </div>
+                    </div>
+                    {% if messages %}
+                    {% for message in messages %}
+                        {% if "Breast Cancer Detected" in message %}
+                        <div class="text-center col-12 hdp-alert">
+                            <font color='red'>{{ message }}</font>
+                            </div>
+                            {% else %}
+                            <div class="text-center col-12 other-alert">
+                            <font color='white'>{{ message }}</font>
+                        </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                </form>
+            </div>
+
+            <div class="col-lg-6 d-flex align-items-center">
+                <img src={% static "img/predictions/bdp.avif" %} alt="Breast Health Image" class="bdp-img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="bdp-info" class="bdp-info mt-5">
+    <div class="bdp-container">
+        <div class="bdp-section-title">
+            <h2>How to Obtain Your Health Data</h2>
+        </div>
+        <div class="bdp-row">
+            <div class="col-md-6">
+                <h4>Age</h4>
+                <small class="bdp-form-text">Enter your age in years. This should be your current age as of today.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Menopause</h4>
+                <small class="bdp-form-text">Select "Yes" if you have gone through menopause, and "No" if you have not.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Tumor Size</h4>
+                <small class="bdp-form-text">Select the size of the tumor in centimeters (cm) from 0 to 15 cm. This information can be obtained from a medical examination or imaging test.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Inv-Nodes</h4>
+                <small class="bdp-form-text">Enter the number of involved nodes. This is typically determined by a biopsy or during surgery.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Breast</h4>
+                <small class="bdp-form-text">Select which breast is affected: Right, Left, or Both. This information is usually determined during a medical examination.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Metastasis</h4>
+                <small class="bdp-form-text">Enter the metastasis information if applicable. This refers to the spread of cancer to other parts of the body and is determined through medical imaging or biopsy.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Breast Quadrant</h4>
+                <small class="bdp-form-text">Select the quadrant of the breast where the tumor is located: Upper inner, Upper outer, Lower inner, Lower outer, or Both.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>History</h4>
+                <small class="bdp-form-text">Select "Yes" if there is a history of breast cancer in your family, otherwise select "No".</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

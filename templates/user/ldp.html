@@ -1,0 +1,130 @@
+{% extends 'user/puserbase.html' %}
+{% load static %}
+{% block contents %}
+
+<section id="ldp-contact" class="ldp-contact">
+    <div class="ldp-container" data-aos="fade-up">
+        <a class="nav-link scrollto" href="{% url 'puserhome' %}#services"><i class="fas fa-arrow-left"></i> Services</a>
+        <div class="ldp-section-title">
+            <h2>Liver Disease Prediction</h2>
+        </div>
+        <div class="ldp-row justify-content-center">
+            <!-- Left Side: Form -->
+            <div class="col-lg-6">
+                <form action="/ldpaction/" method="post" role="form" class="ldp-form">
+                    {% csrf_token %}
+                    <div class="ldp-row gy-3 gx-md-3">
+                        <div class="col-md-6 ldp-form-group">
+                            <label for="age">Age</label>
+                            <input type="text" name="age" class="ldp-form-control" id="age" placeholder="e.g., 45" required>
+                        </div>
+                        <div class="col-md-6 ldp-form-group">
+                            <label for="Gender">Gender</label>
+                            <input type="text" name="Gender" class="ldp-form-control" id="Gender" placeholder="1 for male, 0 for female" required>
+                        </div>
+                        <div class="col-md-6 ldp-form-group">
+                            <label for="Total Bilirubin">Total Bilirubin</label>
+                            <input type="text" name="Total Bilirubin" class="ldp-form-control" id="Total Bilirubin" placeholder="e.g., 0.5" required>
+                        </div>
+                        <div class="col-md-6 ldp-form-group">
+                            <label for="Direct Bilirubin">Direct Bilirubin</label>
+                            <input type="text" name="Direct Bilirubin" class="ldp-form-control" id="Direct Bilirubin" placeholder="e.g., 0.2" required>
+                        </div>
+                        <div class="col-md-6 ldp-form-group">
+                            <label for="Alkaline Phosphotase">Alkaline Phosphotase</label>
+                            <input type="text" name="Alkaline Phosphotase" class="ldp-form-control" id="Alkaline Phosphotase" placeholder="e.g., 80" required>
+                        </div>
+                        <div class="col-md-6 ldp-form-group">
+                            <label for="Alamine Aminotransferase">Alamine Aminotransferase</label>
+                            <input type="text" name="Alamine Aminotransferase" class="ldp-form-control" id="Alamine Aminotransferase" placeholder="e.g., 25" required>
+                        </div>
+                        <div class="col-md-6 ldp-form-group">
+                            <label for="Aspartate Aminotransferase">Aspartate Aminotransferase</label>
+                            <input type="text" name="Aspartate Aminotransferase" class="ldp-form-control" id="Aspartate Aminotransferase" placeholder="e.g., 30" required>
+                        </div>
+                        <div class="col-md-6 ldp-form-group">
+                            <label for="Total Protiens">Total Proteins</label>
+                            <input type="text" name="Total Protiens" class="ldp-form-control" id="Total Protiens" placeholder="e.g., 6.5" required>
+                        </div>
+                        <div class="col-md-6 ldp-form-group">
+                            <label for="ALB Albumin">ALB Albumin</label>
+                            <input type="text" name="ALB Albumin" class="ldp-form-control" id="ALB Albumin" placeholder="e.g., 4.0" required>
+                        </div>
+                        <div class="col-md-6 ldp-form-group">
+                            <label for="Globulin Ratio">Globulin Ratio</label>
+                            <input type="text" name="Globulin Ratio" class="ldp-form-control" id="Globulin Ratio" placeholder="e.g., 1.5" required>
+                        </div>
+                        <div class="text-center col-12">
+                            <button type="submit" class="ldp-btn-primary">Predict <i class="fas fa-arrow-right arrow-icon"></i></button>
+                        </div>
+                    </div>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="text-center col-12 ldp-alert">
+                                <font color='red'>{{ message }}</font>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </form>
+            </div>
+
+            <!-- Right Side: Image -->
+            <div class="col-lg-6 d-flex align-items-center">
+                <img src="https://drramchandrasoni.in/wp-content/uploads/2021/07/Best-Fatty-Liver-Doctor-in-Faridabad-Dr-Ram-Chandra-Soni.jpg" alt="Liver Health Image" class="ldp-img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section for Detailed Information on Obtaining Values -->
+<section id="ldp-info" class="ldp-info mt-5">
+    <div class="ldp-container">
+        <div class="ldp-section-title">
+            <h2>How to Obtain Your Health Data</h2>
+        </div>
+        <div class="ldp-row">
+            <div class="col-md-6">
+                <h4>Age</h4>
+                <small class="ldp-form-text">Enter your age in years. This should be your current age as of today.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Gender</h4>
+                <small class="ldp-form-text">Enter 1 if you are male and 0 if you are female. This is important as liver disease risk can vary between genders.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Total Bilirubin</h4>
+                <small class="ldp-form-text">This value is obtained from a blood test and measures the amount of bilirubin in your blood. It should be in milligrams per deciliter (mg/dL).</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Direct Bilirubin</h4>
+                <small class="ldp-form-text">Direct bilirubin is a component of the total bilirubin level and is measured from a blood test. It is also in milligrams per deciliter (mg/dL).</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Alkaline Phosphotase</h4>
+                <small class="ldp-form-text">Alkaline phosphotase is an enzyme related to the liver. It is measured in units per liter (U/L) from a blood test.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Alamine Aminotransferase</h4>
+                <small class="ldp-form-text">Alamine aminotransferase is an enzyme found in the liver. It is measured in units per liter (U/L) and can indicate liver damage.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Aspartate Aminotransferase</h4>
+                <small class="ldp-form-text">Aspartate aminotransferase is another liver enzyme. Levels are measured in units per liter (U/L) and help assess liver function.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Total Proteins</h4>
+                <small class="ldp-form-text">Total proteins in the blood include albumin and globulins. Measured in grams per deciliter (g/dL) from a blood test.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>ALB Albumin</h4>
+                <small class="ldp-form-text">Albumin is a protein made by the liver. Its level is measured in grams per deciliter (g/dL) and helps assess liver function.</small>
+            </div>
+            <div class="col-md-6">
+                <h4>Globulin Ratio</h4>
+                <small class="ldp-form-text">The globulin ratio is the ratio of globulins to albumin in your blood, measured from a blood test. It can indicate liver and kidney function.</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
